@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Estrategias de Social Media · Luis Cauhapé</title>
+  <meta name="description" content="Detalle del proyecto: Estrategias de Social Media. Alcance, proceso y entregables." />
+  <meta property="og:title" content="Estrategias de Social Media · Caso de estudio" />
+  <meta property="og:description" content="Planificación y diseño de contenido estratégico para redes." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="./MArca sola para WEb_Mesa de trabajo 1.png" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b0c10; --panel: #111218; --text: #e6e8ee; --muted: #b6bdc6; --primary: #2ca5f1; --accent:#14eb51; --ring:#67e8f9;
+      --ok:#22c55e; --warn:#f59e0b; --radius:16px; --shadow:0 10px 25px rgba(0,0,0,.35); --maxw: 1100px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;line-height:1.6;background:linear-gradient(180deg,#131421 0%,#18181a 60%, #1d2035 100%);color:var(--text)}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block;border-radius:12px}
+    .container{max-width:var(--maxw);margin-inline:auto;padding:clamp(16px,2vw,24px)}
+    .btn{display:inline-flex;gap:.6rem;align-items:center;background:linear-gradient(15deg,var(--primary),var(--accent));color:#10100b;border:0;padding:.9rem 1.15rem;border-radius:999px;font-weight:700;letter-spacing:.2px;box-shadow:0 8px 20px rgba(55, 208, 231, 0.25);transition:transform .12s ease,filter .2s ease}
+    .btn:hover{transform:translateY(-2px);color:var(--text)}
+    .btn.ghost{background:transparent;color:var(--text);outline:1px solid #2a2f38}
+
+    header.site{position:sticky;top:0;backdrop-filter:saturate(120%) blur(10px);background:#080808;z-index:40;border-bottom:1px solid #1b1f29}
+    .nav{display:flex;align-items:center;justify-content:space-between}
+    .nav a.brand{display:flex;align-items:center;font-weight:800;letter-spacing:.2px}
+    .nav .brand-mark{width:28px;height:28px;border-radius:8px;;margin-right:.6rem;box-shadow:0 0 0 2px #0b0c10, 0 6px 18px rgba(34,211,238,.35)}
+    .menu{display:flex;gap:.75rem}
+
+    /* Headline del caso */
+    .case-hero{display:grid;grid-template-columns:1fr;gap:18px;padding-block:clamp(28px,6vw,72px)}
+    .eyebrow{font-size:.85rem;background:rgba(24,153,173,.12);border:1px solid rgba(79,217,239,.35);padding:.25rem .6rem;border-radius:999px;color:var(--accent);display:inline-block}
+    .case-hero h1{font-size:clamp(1.8rem,4.5vw,3rem);line-height:1.15;margin:.25rem 0}
+    .lead{font-size:clamp(1rem,2.2vw,1.25rem);color:var(--muted);margin:0 0 1rem}
+
+    .breadcrumbs{display:flex;gap:.5rem;align-items:center;color:var(--muted);font-size:.95rem}
+    .breadcrumbs a{color:var(--muted)}
+    .breadcrumbs .sep{opacity:.6}
+
+    .cover{background:radial-gradient(80% 80% at 70% 30%, rgba(34,211,238,.18), transparent 70%), linear-gradient(180deg,#0e1016,#0a0b10);border:1px solid #1c2230;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+
+    /* Meta del proyecto */
+    .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
+    .meta .item{background:rgba(255,255,255,.02);border:1px solid #1f2534;border-radius:14px;padding:14px}
+    .meta .item span{display:block;color:var(--muted);font-size:.85rem}
+    .meta .item strong{font-size:1.05rem}
+
+    /* Secciones */
+    section{padding-block:clamp(28px,5vw,60px);border-top:1px solid #12161f}
+    .section-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:12px}
+    h2{margin:.2rem 0;font-size:clamp(1.3rem,2.6vw,1.8rem)}
+    .muted{color:var(--muted)}
+
+    /* Galería */
+    .gallery{display:flex;
+      flex-direction: row;
+     width: 100%;
+    height: auto; }
+    .frame g-6{width: 100%; height: auto; margin: 0px;}
+    .frame{background:#101521;border:1px solid #1d2231;border-radius:14px;overflow:hidden}
+    figure{
+        margin: 0px;
+        border-radius: 0px;
+    }
+
+    /* Callout final */
+    .callout{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,.01));border:1px solid #1a1a1c;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+
+    footer{border-top:1px solid #12161f;padding:24px 0;color:#93a1b3}
+
+    /* Responsive */
+    @media (max-width: 960px){ .meta{grid-template-columns:repeat(2,1fr)} 
+    .gallery{grid-template-columns:repeat(6,1fr)} .g-6{grid-column:span 6} }
+    @media (max-width: 640px){ .meta{grid-template-columns:1fr} .gallery{grid-template-columns:repeat(4,1fr)} .g-6,.g-12{grid-column:span 4} }
+
+    
+
+    /* Modo claro en runtime */
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="container nav">
+      <a href="./index.html#trabajos" class="brand" aria-label="Volver al inicio">
+       
+        
+         <img src="./MArca sola para WEb_Mesa de trabajo 1.png" alt="" class="brand-mark" />
+        Luis Cauhapé
+      </a>
+      <nav class="menu" aria-label="Acciones">
+        <a href="./index.html#trabajos" class="btn ghost">← Volver a trabajos</a>
+        <button class="btn ghost" id="themeToggle" type="button" aria-pressed="false">🌙 Modo</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container case-hero">
+      <nav class="breadcrumbs" aria-label="Breadcrumbs">
+        <a href="./index.html#trabajos">Trabajos</a>
+        <span class="sep">/</span>
+        <span aria-current="page">Sistema de identidad Panadería Café</span>
+      </nav>
+
+      <span class="eyebrow">Caso de estudio</span>
+      <h1>Sistema de identidad Panadería Café</h1>
+      <p class="lead">Planificación completa de la marca: logo, paleta de colores y tipografía.</p>
+<p class="lead">Creación de ilustraciones artesanales y diseño del menú.</p>
+<p class="lead">Guía de estilo y sistema de piezas para redes sociales, con lineamientos que mejoran la consistencia y la performance.</p>
+
+      <div class="cover">
+        <img src="./ec32cf177537877.64d7f98b43ec4.png" alt="Portada del caso: Estrategias de Social Media" />
+      </div>
+
+      <div class="meta" role="list">
+        <div class="item" role="listitem"><span>Rol</span><strong>Diseño, Ilustración & Estrategia</strong></div>
+        <div class="item" role="listitem"><span>Entregables</span><strong>Manual, Redes sociales, social Media</strong></div>
+        <div class="item" role="listitem"><span>Herramientas</span><strong>Photoshop, Illustrator, After Effects</strong></div>
+        <div class="item" role="listitem"><span>Año</span><strong>2023</strong></div>
+      </div>
+    </div>
+
+    <section id="objetivos">
+      <div class="container">
+        <div class="section-head"><h2>Objetivos</h2></div>
+        <p class="muted"> Crear una marca única que transmita autenticidad y calidez.</p>
+
+        <p class="muted">Diseñar un entorno amigable y acogedor para compartir momentos especiales.</p>
+
+        <p class="muted">Desarrollar una paleta cromática distintiva que refuerce la identidad visual.</p>
+
+        <p class="muted"></p>Incorporar ilustraciones artesanales para resaltar la dedicación al detalle.</p>
+
+<p class="muted"></p>Unificar logo, tipografía, menú y redes sociales bajo una misma guía de estilo.
+
+<p class="muted"></p>Mejorar la consistencia y performance de la comunicación en redes.
+      </div>
+    </section>
+
+    <section id="proceso">
+      <div class="container">
+        <div class="section-head"><h2>Proceso</h2></div>
+        <p class="muted">El proyecto comenzó con la planificación estratégica y la definición de la identidad de marca. A partir de allí, se diseñaron el logo, la paleta cromática y la tipografía, complementados con ilustraciones artesanales para reforzar el carácter cálido y auténtico. Finalmente, se desarrolló la guía de estilo, el menú y el sistema de piezas para redes sociales, asegurando coherencia visual y consistencia en la comunicación.</p>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <div class="container">
+        <div class="section-head"><h2>Resultados</h2></div>
+        <div class="gallery">
+          <figure class="frame g-6"><img src="./a8ed07177537877.64d7f98b3ab12.png" alt="Composición de posts; ejemplo 1" /></figure>
+          
+      </div>
+      <div class="gallery">
+          <figure class="frame g-6"><img src="./e6c0cd177537877.64d7f98b303ee.png" alt="Composición de posts; ejemplo 2" /></figure>
+      </div>
+
+      <div class="gallery">
+          <figure class="frame g-6"><img src="./ac6819177537877.64d7f98b352dc.png" alt="Composición de posts; ejemplo 3" /></figure>
+      </div>
+
+      <div class="gallery">
+          <figure class="frame g-6"><img src="./927630177537877.64d7f98b41bc8.png" alt="Composición de posts; ejemplo 4" /></figure>
+      </div>
+      
+      <div class="gallery">
+          <figure class="frame g-6"><img src="./57cf97177537877.64d7f98b31dd8.png" alt="Composición de posts; ejemplo 5" /></figure>
+      </div>
+
+      <div class="gallery">
+          <figure class="frame g-6"><img src="./a650cf179013743.64f1e952e4ccb.jpg" alt="Composición de posts; ejemplo 5" /></figure>
+      </div>
+
+      <div class="gallery">
+          <figure class="frame g-6"><img src="./8f061a179013743.64f1e952eaaf7.jpg" alt="Composición de posts; ejemplo 5" /></figure>
+      </div>
+
+      <div class="gallery">
+          <figure class="frame g-6"><img src="./055b1a179013743.64f1e952e9d99.jpg" alt="Composición de posts; ejemplo 5" /></figure>
+      </div>
+      
+      
+      </div>
+    </section>
+
+    <section id="cta">
+      <div class="container">
+        <div class="callout">
+          <div>
+            <h2 style="margin:0 0 .25rem">Ver el proyecto en Behance</h2>
+            <p class="muted" style="margin:0">Explorá el proyecto completo aquí.</p>
+          </div>
+
+          <a class="btn" href="https://www.behance.net/gallery/177537877/Panaderia-Caf" target="_blank" rel="noopener">Abrir en Behance ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+      <small>© <span id="year"></span> Luis Cauhapé — Diseñador en Comunicación Visual</small>
+      <a href="#top" class="btn ghost" aria-label="Volver arriba">↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // Año dinámico
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Tema dark/light (mismo comportamiento que el index)
+    const toggle = document.getElementById('themeToggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const saved = localStorage.getItem('theme');
+    if(saved === 'light') document.documentElement.classList.add('light');
+    if(saved === 'dark' || (!saved && prefersDark)) document.documentElement.classList.remove('light');
+    toggle?.addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+      const isLight = document.documentElement.classList.contains('light');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      toggle.setAttribute('aria-pressed', String(isLight));
+    });
+
+    // Estilos para modo claro inyectados en runtime
+    const lightCSS = `:root{--bg:#f7fafc;--panel:#ffffff;--text:#0b1324;--muted:#556070}body{background:linear-gradient(180deg,#f5f7fb,#eef3f9)} header.site{background:rgba(255,255,255,.7);border-bottom-color:#e6e9f2}`;
+    const styleEl = document.createElement('style');
+    styleEl.id = 'lightStyles';
+    document.head.appendChild(styleEl);
+    const applyLight = () => styleEl.textContent = document.documentElement.classList.contains('light') ? lightCSS : '';
+    applyLight();
+    const mo = new MutationObserver(applyLight);
+    mo.observe(document.documentElement,{attributes:true,attributeFilter:['class']});
+  </script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Galería · Luis Cauhapé</title>
+<style>
+:root {
+  --bg: #0b0c10;
+  --panel: #111218;
+  --text: #e6e8ee;
+  --muted: #b6bdc6;
+  --primary: #2ca5f1;
+  --accent: #14eb51;
+  --radius: 16px;
+  --shadow: 0 10px 25px rgba(0,0,0,.35);
+  --maxw: 1200px;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu;
+  line-height: 1.6;
+  background: linear-gradient(180deg,#131421 0%, #18181a 60%, #1d2035 100%);
+  color: var(--text);
+}
+a { color: inherit; text-decoration: none; }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #080808;
+  border-bottom: 1px solid #1b1f29;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+header h1 { font-size: 1.2rem; margin: 0; color: var(--accent); }
+h2 { text-align: center; margin-bottom: 2rem; font-size: 2rem; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.gallery-item {
+  background: #101521;
+  border: 1px solid #1d2231;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+.title-gallery{
+  color: var(--text);
+}
+.slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.slider-item {
+  min-width: 100%;
+  user-select: none;
+}
+
+.slider-item img {
+  width: 100%;
+  display: block;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  border: none;
+  padding: 0.5rem 0.7rem;
+  border-radius: 25%;
+  cursor: pointer;
+  color: #10100b;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+.slider-btn:hover { background: var(--accent); }
+
+.slider-btn.prev { left: 10px; }
+.slider-btn.next { right: 10px; }
+
+.gallery-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  background: #080808;
+  border-top: 1px solid #1b1f29;
+}
+.title-gallery{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  margin: 1rem;
+}
+.runvay img{
+  height: auto;
+  width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-content: center;
+}
+footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1 class="title-gallery">Galería</h1>
+  <nav>
+    <a href="index.html">← Volver al inicio</a>
+  </nav>
+</header>
+
+<main>
+<h2>Exploraciones & Ilustraciones</h2>
+<div class="gallery">
+
+  <!-- Gallery Item con Slider -->
+  <div class="gallery-item">
+    <div class="slider">
+      <div class="slider-track">
+        <div class="slider-item"><img src="./1724111051187.jpg" alt="Ilustración 1"></div>
+        <div class="slider-item"><img src="./1724111053716.jpg" alt="Ilustración 1a"></div>
+       </div>
+      
+      <button class="slider-btn prev">&#10094;</button>
+      <button class="slider-btn next">&#10095;</button>
+      <div class="title-gallery">Ilustración para etiqueta de bebida.</div>
+    </div>
+    
+  </div>
+
+  <div class="gallery-item">
+    <div class="slider">
+      <div class="slider-track ilustracion-2">
+        <div class="slider-item"><img src="./1718379568962.jpg" alt="Ilustración 2"></div>
+        <div class="slider-item"><img src="./1718379567431.jpg" alt="Ilustración 2a"></div>
+        <div class="slider-item"><img src="./1718379568340.jpg" alt="Ilustración 2a"></div>
+        <div class="slider-item"><img src="./1718379569245.jpg" alt="Ilustración 2a"></div>
+      </div>
+      <button class="slider-btn prev">&#10094;</button>
+      <button class="slider-btn next">&#10095;</button>
+      <div class="title-gallery">Ilustración para sitio web de astrólogos.</div>
+    </div>
+  </div>
+
+
+    <div class="gallery-item">
+    <div class="slider">
+      <div class="slider-track ilustracion-2">
+        <div class="slider-item"><img src="./Perfil IG Uno_Mesa de trabajo 1_Mesa de trabajo 1.jpg" alt="Ilustración 2"></div>
+        <div class="slider-item"><img src="./Fonograma_Mesa de trabajo 1.jpg" alt="Ilustración 2a"></div>
+        <div class="slider-item"><img src="./Etiqeutas de mini-01.jpg" alt="Ilustración 2a"></div>
+        <div class="slider-item"><img src="./Etiqeutas de mini-02.jpg" alt="Ilustración 2a"></div>
+      </div>
+      <button class="slider-btn prev">&#10094;</button>
+      <button class="slider-btn next">&#10095;</button>
+      <div class="title-gallery">Marca de ropa de bebe</div>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <div class="slider">
+      <div class="slider-track ilustracion-2 runvay">
+        <div class="slider-item"><img src="./pexels-дарья-шелкович-5010664.jpg"></div>
+        <div class="slider-item"><img src="./232.jpg" alt="Ilustración 2"></div>
+        <div class="slider-item"><img src="./232a.jpg" alt="Ilustración 2a"></div>
+        <div class="slider-item"><img src="./Foto Perfil Instagram Destacada 320px-02.jpg" alt="Ilustración 2a"></div>
+      </div>
+      <button class="slider-btn prev">&#10094;</button>
+      <button class="slider-btn next">&#10095;</button>
+      <div class="title-gallery">Marca para asesoras en moda</div>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<footer>
+<p>© 2025 Luis Cauhapé · <a href="index.html">Volver al inicio</a></p>
+</footer>
+
+<script>
+// Slider funcional
+document.querySelectorAll('.gallery-item').forEach(item => {
+  const track = item.querySelector('.slider-track');
+  const slides = track.children;
+  let index = 0;
+
+  const prevBtn = item.querySelector('.prev');
+  const nextBtn = item.querySelector('.next');
+
+  prevBtn.addEventListener('click', () => {
+    index = (index - 1 + slides.length) % slides.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+  });
+
+  nextBtn.addEventListener('click', () => {
+    index = (index + 1) % slides.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+  });
+});
+</script>
+
+</body>
+</html>
+
