@@ -546,22 +546,30 @@ details[open] > summary::before {
           <p class="muted">Contame sobre tu proyecto y coordinamos una llamada.</p>
         </div>
         <div class="contact">
-          <form action ="https://formspree.io/f/mvgwbrdr" method="POST" id="contactForm" novalidate>
-            <label>
-              <span>Nombre</span>
-              <input class="color-input" type="text" name="nombre" required placeholder="Tu nombre" />
-            </label>
-            <label>
-              <span>Email</span>
-              <input class="color-input" type="email" name="email" required placeholder="tucorreo@ejemplo.com" />
-            </label>
-            <label>
-              <span>Mensaje</span>
-              <textarea class="color-input" name="mensaje" rows="5" required placeholder="¿En que puedo ayudarte?"></textarea>
-            </label>
-            <button class="btn" type="submit">Enviar</button>
-            <p class="note" id="formNote" role="status" aria-live="polite"></p>
-          </form>
+          <form action="https://formspree.io/f/mvgwbrdr" method="POST" id="contactForm">
+  <!-- Input oculto para asunto del correo -->
+  <input type="hidden" name="_subject" value="Nuevo mensaje desde tu web">
+
+  <label>
+    <span>Nombre</span>
+    <input class="color-input" type="text" name="nombre" required placeholder="Tu nombre" />
+  </label>
+
+  <label>
+    <span>Email</span>
+    <input class="color-input" type="email" name="email" required placeholder="tucorreo@ejemplo.com" />
+  </label>
+
+  <label>
+    <span>Mensaje</span>
+    <textarea class="color-input" name="mensaje" rows="5" required placeholder="¿En qué puedo ayudarte?"></textarea>
+  </label>
+
+  <button class="btn" type="submit">Enviar</button>
+
+  <!-- Mensaje de confirmación -->
+  <p class="note" id="formNote" role="status" aria-live="polite"></p>
+</form>
           <aside class="svc">
             <h3>Disponibilidad</h3>
             <p class="muted">Proyectos cortos y medianos. Entregas por hito, documentación y archivos listos para producción.</p>
@@ -849,6 +857,7 @@ openBtn.addEventListener('click', () => {
   </script>
 </body>
 </html>
+
 
 
 
