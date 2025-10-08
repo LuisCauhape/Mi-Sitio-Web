@@ -834,30 +834,35 @@ openBtn.addEventListener('click', () => {
 });
 
     // Form validation (client-side)
-    const form = document.getElementById('contactForm');
-    const note = document.getElementById('formNote');
-    form?.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const data = new FormData(form);
-      const nombre = (data.get('nombre')||'').toString().trim();
-      const email  = (data.get('email')||'').toString().trim();
-      const mensaje= (data.get('mensaje')||'').toString().trim();
-      if(!nombre || !email || !mensaje){
-        note.textContent = 'Completá todos los campos.';
-        note.style.color = 'var(--warn)';
-        return;
+      form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        note.textContent = "¡Mensaje enviado correctamente! Gracias por contactarme.";
+        form.reset();
+      } else {
+        note.textContent = "Ocurrió un error. Por favor, intenta nuevamente.";
       }
-      const ok = /.+@.+\..+/.test(email);
-      if(!ok){ note.textContent='Ingresá un email válido.'; note.style.color='var(--warn)'; return; }
-      note.textContent = '¡Gracias! Te respondo a la brevedad.';
-      note.style.color = 'var(--ok)';
-      form.reset();
-    });
+    } catch (error) {
+      note.textContent = "Ocurrió un error. Por favor, intenta nuevamente.";
+    }
+  });
 
     
   </script>
 </body>
 </html>
+
 
 
 
