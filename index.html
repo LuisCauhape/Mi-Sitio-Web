@@ -546,23 +546,23 @@ details[open] > summary::before {
           <p class="muted">Contame sobre tu proyecto y coordinamos una llamada.</p>
         </div>
         <div class="contact">
-          <form id="contactForm">
+         <form id="contactForm">
   <label>
     <span>Nombre</span>
-    <input class="color-input" type="text" name="nombre" required placeholder="Tu nombre" />
+    <input type="text" name="nombre" required placeholder="Tu nombre">
   </label>
 
   <label>
     <span>Email</span>
-    <input class="color-input" type="email" name="email" required placeholder="tucorreo@ejemplo.com" />
+    <input type="email" name="email" required placeholder="tucorreo@ejemplo.com">
   </label>
 
   <label>
     <span>Mensaje</span>
-    <textarea class="color-input" name="mensaje" rows="5" required placeholder="¿En qué puedo ayudarte?"></textarea>
+    <textarea name="mensaje" rows="5" required placeholder="¿En qué puedo ayudarte?"></textarea>
   </label>
 
-  <button class="btn" type="submit">Enviar</button>
+  <button type="submit">Enviar</button>
 
   <p id="formNote" role="status" aria-live="polite"></p>
 </form>
@@ -830,11 +830,11 @@ openBtn.addEventListener('click', () => {
 });
 
     // Form validation (client-side)
-      const form = document.getElementById('contactForm');
+ const form = document.getElementById('contactForm');
   const note = document.getElementById('formNote');
 
   form.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Evita que se recargue la página
+    e.preventDefault(); // evita la redirección
 
     const formData = new FormData(form);
 
@@ -862,6 +862,7 @@ openBtn.addEventListener('click', () => {
   </script>
 </body>
 </html>
+
 
 
 
