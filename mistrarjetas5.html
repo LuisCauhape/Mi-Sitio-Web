@@ -490,57 +490,73 @@
     </div>
   </footer>
 
-  <script>
-    // Año en footer
-    document.getElementById('year').textContent = new Date().getFullYear();
+<script>
+  // Año en footer
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Volver arriba
-    document.getElementById('back-top').addEventListener('click', e => {
-      e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Cursor personalizado
-    const cursor = document.getElementById('cursor');
-    const ring   = document.getElementById('cursor-ring');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cursor.style.transform = `translate(${mx}px,${my}px) translate(-50%,-50%)`;
-    });
-    (function animRing() {
-      rx += (mx - rx) * .12;
-      ry += (my - ry) * .12;
-      ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
-      requestAnimationFrame(animRing);
-    })();
-    document.querySelectorAll('a,button').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.style.background = 'var(--pink)';
-        ring.style.width = '56px'; ring.style.height = '56px';
-        ring.style.borderColor = 'rgba(255,79,216,.3)';
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.style.background = 'var(--lime)';
-        ring.style.width = '36px'; ring.style.height = '36px';
-        ring.style.borderColor = 'rgba(200,245,59,.4)';
-      });
-    });
-
-    // Scroll reveal
-const revObs = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revObs.unobserve(entry.target);
-    }
+  // Volver arriba
+  document.getElementById('back-top').addEventListener('click', e => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-}, { threshold: 0.1 });
 
-document.querySelectorAll('.reveal').forEach(el => {
-  revObs.observe(el);
-});
+  // Cursor personalizado
+  const cursor = document.getElementById('cursor');
+  const ring   = document.getElementById('cursor-ring');
+  let mx = 0, my = 0, rx = 0, ry = 0;
 
-   
-  </script>
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+    cursor.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
+  });
+
+  (function animRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
+    requestAnimationFrame(animRing);
+  })();
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.background = 'var(--pink)';
+      ring.style.width = '56px';
+      ring.style.height = '56px';
+      ring.style.borderColor = 'rgba(255,79,216,.3)';
+    });
+
+    el.addEventListener('mouseleave', () => {
+      cursor.style.background = 'var(--lime)';
+      ring.style.width = '36px';
+      ring.style.height = '36px';
+      ring.style.borderColor = 'rgba(200,245,59,.4)';
+    });
+  });
+
+  // Scroll reveal + FIX imágenes
+  const revObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+
+        // 🔥 Fix render imágenes
+        const imgs = entry.target.querySelectorAll('img');
+        imgs.forEach(img => {
+          img.style.opacity = '0.99';
+          setTimeout(() => {
+            img.style.opacity = '1';
+          }, 30);
+        });
+
+        revObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => {
+    revObs.observe(el);
+  });
+</script>
 </body>
 </html>
