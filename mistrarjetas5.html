@@ -129,13 +129,16 @@
     @keyframes drift { from{transform:translate(0,0) scale(1)} to{transform:translate(28px,18px) scale(1.07)} }
 
     /* SCROLL REVEAL */
-    .reveal {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity .7s ease, transform .7s ease;
-      will-change: opacity, transform;
-      backface-visibility: hidden;
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
     .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.4s}
 
     @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
@@ -449,12 +452,19 @@
         <h2 class="section-title" style="margin-bottom:.5rem">Diseño final<br/>de la aplicación.</h2>
       </div>
       <div class="gallery">
-        <div class="gallery-item reveal d1">
-          <img src="./Portfolio App Ronda Por las dudas _Mesa de trabajo 1.png" alt="Pantallas finales de la app Ronda — vista 1" loading="eager" decoding="async"/>
-        </div>
-        <div class="gallery-item reveal d2">
-          <img src="./Portfolio App Ronda Por las dudas -05.png" alt="Pantallas finales de la app Ronda — vista 2" loading="eager" decoding="async"/>
-        </div>
+
+        <div class="gallery-item d1">
+  <div class="reveal">
+   <img src="./Portfolio App Ronda Por las dudas _Mesa de trabajo 1.png" alt="Pantallas finales de la app Ronda — vista 1" loading="eager" decoding="async"/>
+  </div>
+</div>
+        
+       <div class="gallery-item d1">
+  <div class="reveal">
+    <img src="./Portfolio App Ronda Por las dudas -05.png" alt="Pantallas finales de la app Ronda — vista 2" loading="eager" decoding="async"/>
+  </div>
+</div>
+        
       </div>
     </div>
   </section>
@@ -522,17 +532,16 @@
     });
 
     // Scroll reveal
-    const revObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          // Force repaint on images inside revealed element
-          const imgs = e.target.querySelectorAll('img');
-          imgs.forEach(img => { img.style.transform = 'translateZ(0)'; });
-        }
-      });
-    }, { threshold: .08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+   const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
 
     if (e.isIntersecting) {
   e.target.classList.add('visible');
