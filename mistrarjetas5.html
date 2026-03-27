@@ -129,10 +129,11 @@
     @keyframes drift { from{transform:translate(0,0) scale(1)} to{transform:translate(28px,18px) scale(1.07)} }
 
     /* SCROLL REVEAL */
-  .reveal {
+.reveal {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity .7s ease, transform .7s ease;
+  will-change: opacity, transform; /* 🔥 clave */
 }
 
 .reveal.visible {
@@ -246,18 +247,20 @@
   .gallery-item {
   background: var(--surface);
   border-radius: var(--radius);
-  overflow: visible;
+  overflow: hidden;
   border: 1px solid rgba(255,255,255,.06);
   transition: transform .3s, border-color .3s;
   
 }
     .gallery-item:hover { transform: translateY(-4px) translateZ(0); border-color: rgba(255,255,255,.12); }
-    .gallery-item img {
-      width: 100%; height: auto; display: block;
-     
-     
-    }
 
+    .gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: translateZ(0); /* 🔥 clave */
+  will-change: transform;
+}
   
 
     /* ── CALLOUT ── */
