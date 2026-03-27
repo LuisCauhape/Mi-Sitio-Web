@@ -258,9 +258,7 @@
      
     }
 
-  img {
-  content-visibility: auto;
-}
+  
 
     /* ── CALLOUT ── */
     .callout-section { padding: 5rem 0; }
@@ -452,19 +450,13 @@
         <h2 class="section-title" style="margin-bottom:.5rem">Diseño final<br/>de la aplicación.</h2>
       </div>
       <div class="gallery">
+        <div class="gallery-item reveal d1">
+  <img src="./Portfolio App Ronda Por las dudas _Mesa de trabajo 1.png" />
+</div>
 
-        <div class="gallery-item d1">
-  <div class="reveal">
-   <img src="./Portfolio App Ronda Por las dudas _Mesa de trabajo 1.png" alt="Pantallas finales de la app Ronda — vista 1" loading="eager" decoding="async"/>
-  </div>
+<div class="gallery-item reveal d2">
+  <img src="./Portfolio App Ronda Por las dudas -05.png" />
 </div>
-        
-       <div class="gallery-item d1">
-  <div class="reveal">
-    <img src="./Portfolio App Ronda Por las dudas -05.png" alt="Pantallas finales de la app Ronda — vista 2" loading="eager" decoding="async"/>
-  </div>
-</div>
-        
       </div>
     </div>
   </section>
@@ -532,26 +524,20 @@
     });
 
     // Scroll reveal
-   const revObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      revObs.unobserve(e.target);
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revObs.unobserve(entry.target);
     }
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+document.querySelectorAll('.reveal').forEach(el => {
+  revObs.observe(el);
+});
 
-    if (e.isIntersecting) {
-  e.target.classList.add('visible');
-
-  const imgs = e.target.querySelectorAll('img');
-  imgs.forEach(img => {
-    img.style.opacity = '0.999'; // 👈 hack repaint
-    setTimeout(() => img.style.opacity = '1', 50);
-  });
-}
+   
   </script>
 </body>
 </html>
