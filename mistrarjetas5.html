@@ -240,18 +240,19 @@
 
     /* ── GALLERY ── */
     .gallery { display: flex; flex-direction: column; gap: 1.3rem; margin-top: 2.5rem; }
-    .gallery-item {
-      background: var(--surface); border-radius: var(--radius); overflow: hidden;
-      border: 1px solid rgba(255,255,255,.06);
-      transition: transform .3s, border-color .3s;
-      transform: translateZ(0);
-      will-change: transform;
-    }
+  .gallery-item {
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.06);
+  transition: transform .3s, border-color .3s;
+  
+}
     .gallery-item:hover { transform: translateY(-4px) translateZ(0); border-color: rgba(255,255,255,.12); }
     .gallery-item img {
       width: 100%; height: auto; display: block;
-      transform: translateZ(0);
-      backface-visibility: hidden;
+     
+     
     }
 
     /* ── CALLOUT ── */
@@ -528,6 +529,16 @@
       });
     }, { threshold: .08, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+    if (e.isIntersecting) {
+  e.target.classList.add('visible');
+
+  const imgs = e.target.querySelectorAll('img');
+  imgs.forEach(img => {
+    img.style.opacity = '0.999'; // 👈 hack repaint
+    setTimeout(() => img.style.opacity = '1', 50);
+  });
+}
   </script>
 </body>
 </html>
