@@ -1,216 +1,540 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Estrategias de Social Media · Luis Cauhapé</title>
-  <meta name="description" content="Detalle del proyecto: Estrategias de Social Media. Alcance, proceso y entregables." />
-  <meta property="og:title" content="Estrategias de Social Media · Caso de estudio" />
-  <meta property="og:description" content="Planificación y diseño de contenido estratégico para redes." />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#0ea5e9" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" href="./MArca sola para WEb_Mesa de trabajo 1.png" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exposición Tomás Maldonado · Luis Cauhapé</title>
+  <meta name="description" content="Caso de estudio: diseño de exposición Tomás Maldonado — Social + Espacio."/>
+  <meta property="og:title" content="Exposición Tomás Maldonado · Luis Cauhapé"/>
+  <meta property="og:description" content="Una fusión del artista, el enfoque en la interacción social y espacial del diseño."/>
+  <meta property="og:type" content="website"/>
+  <link rel="icon" href="./MArca sola para WEb_Mesa de trabajo 1.png" type="image/x-icon"/>
+
+  <!-- FONTS: Bricolage Grotesque + DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+
   <style>
-    :root{
-      --bg: #0b0c10; --panel: #111218; --text: #e6e8ee; --muted: #b6bdc6; --primary: #2ca5f1; --accent:#14eb51; --ring:#67e8f9;
-      --ok:#22c55e; --warn:#f59e0b; --radius:16px; --shadow:0 10px 25px rgba(0,0,0,.35); --maxw: 1100px;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0f;
+      --surface: #16161a;
+      --lime: #c8f53b;
+      --pink: #ff4fd8;
+      --cyan: #3bdfff;
+      --orange: #ff7c3b;
+      --white: #f0ede6;
+      --muted: #7a7a8a;
+      --font-display: 'Bricolage Grotesque', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --radius: 20px;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;line-height:1.6;background:linear-gradient(180deg,#131421 0%,#18181a 60%, #1d2035 100%);color:var(--text)}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block;border-radius:12px}
-    .container{max-width:var(--maxw);margin-inline:auto;padding:clamp(16px,2vw,24px)}
-    .btn{display:inline-flex;gap:.6rem;align-items:center;background:linear-gradient(15deg,var(--primary),var(--accent));color:#10100b;border:0;padding:.9rem 1.15rem;border-radius:999px;font-weight:700;letter-spacing:.2px;box-shadow:0 8px 20px rgba(55, 208, 231, 0.25);transition:transform .12s ease,filter .2s ease}
-    .btn:hover{transform:translateY(-2px);color:var(--text)}
-    .btn.ghost{background:transparent;color:var(--text);outline:1px solid #2a2f38}
 
-    header.site{position:sticky;top:0;backdrop-filter:saturate(120%) blur(10px);background:#080808;z-index:40;border-bottom:1px solid #1b1f29}
-    .nav{display:flex;align-items:center;justify-content:space-between}
-    .nav a.brand{display:flex;align-items:center;font-weight:800;letter-spacing:.2px}
-    .nav .brand-mark{width:28px;height:28px;border-radius:8px;;margin-right:.6rem;box-shadow:0 0 0 2px #0b0c10, 0 6px 18px rgba(34,211,238,.35)}
-    .menu{display:flex;gap:.75rem}
-
-    /* Headline del caso */
-    .case-hero{display:grid;grid-template-columns:1fr;gap:18px;padding-block:clamp(28px,6vw,72px)}
-    .eyebrow{font-size:.85rem;background:rgba(24,153,173,.12);border:1px solid rgba(79,217,239,.35);padding:.25rem .6rem;border-radius:999px;color:var(--accent);display:inline-block}
-    .case-hero h1{font-size:clamp(1.8rem,4.5vw,3rem);line-height:1.15;margin:.25rem 0}
-    .lead{font-size:clamp(1rem,2.2vw,1.25rem);color:var(--muted);margin:0 0 1rem}
-
-    .breadcrumbs{display:flex;gap:.5rem;align-items:center;color:var(--muted);font-size:.95rem}
-    .breadcrumbs a{color:var(--muted)}
-    .breadcrumbs .sep{opacity:.6}
-
-    .cover{background:radial-gradient(80% 80% at 70% 30%, rgba(34,211,238,.18), transparent 70%), linear-gradient(180deg,#0e1016,#0a0b10);border:1px solid #1c2230;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-
-    /* Meta del proyecto */
-    .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
-    .meta .item{background:rgba(255,255,255,.02);border:1px solid #1f2534;border-radius:14px;padding:14px}
-    .meta .item span{display:block;color:var(--muted);font-size:.85rem}
-    .meta .item strong{font-size:1.05rem}
-
-    /* Secciones */
-    section{padding-block:clamp(28px,5vw,60px);border-top:1px solid #12161f}
-    .section-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:12px}
-    h2{margin:.2rem 0;font-size:clamp(1.3rem,2.6vw,1.8rem)}
-    .muted{color:var(--muted)}
-
-    /* Galería */
-    .gallery{display:flex;
-      flex-direction: row;
-     width: 100%;
-    height: auto; }
-    .frame g-6{width: 100%; height: auto; margin: 0px;}
-    .frame{background:#101521;border:1px solid #1d2231;border-radius:14px;overflow:hidden}
-    figure{
-        margin: 0px;
-        border-radius: 0px;
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--white);
+      font-family: var(--font-body); font-weight: 300;
+      overflow-x: hidden; cursor: none;
     }
-   
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-    /* Callout final */
-    .callout{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,.01));border:1px solid #1a1a1c;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+    /* ── CURSOR ── */
+    #cursor {
+      width: 12px; height: 12px; background: var(--lime); border-radius: 50%;
+      position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
+      transition: background .2s, transform .15s; transform: translate(-50%,-50%);
+    }
+    #cursor-ring {
+      width: 36px; height: 36px; border: 1.5px solid rgba(200,245,59,.4); border-radius: 50%;
+      position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998;
+      transition: width .3s, height .3s, border-color .3s; transform: translate(-50%,-50%);
+    }
 
-    footer{border-top:1px solid #12161f;padding:24px 0;color:#93a1b3}
+    /* ── NAV ── */
+    nav.site {
+      position: fixed; top: 0; width: 100%; z-index: 200;
+      padding: 1.3rem 3rem;
+      display: flex; justify-content: space-between; align-items: center;
+      backdrop-filter: blur(18px); background: rgba(13,13,15,.78);
+      border-bottom: 1px solid rgba(255,255,255,.04);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: .7rem;
+      font-family: var(--font-display); font-weight: 800; font-size: 1.05rem;
+      letter-spacing: -.02em;
+    }
+    .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-logo span { color: var(--lime); }
+    .nav-actions { display: flex; align-items: center; gap: .8rem; }
+    .btn-back {
+      display: inline-flex; align-items: center; gap: .5rem;
+      color: var(--muted); padding: .6rem .9rem; border-radius: 10px;
+      font-size: .82rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 500;
+      border: 1px solid rgba(255,255,255,.08);
+      transition: color .2s, background .2s, border-color .2s;
+    }
+    .btn-back:hover { color: var(--white); background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.15); }
+    .nav-cta {
+      background: var(--lime); color: #0d0d0f;
+      padding: .55rem 1.4rem; border-radius: 100px;
+      font-family: var(--font-display); font-weight: 700; font-size: .82rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,245,59,.3); }
 
-    /* Responsive */
-    @media (max-width: 960px){ .meta{grid-template-columns:repeat(2,1fr)} 
-    .gallery{grid-template-columns:repeat(6,1fr)} .g-6{grid-column:span 6} }
-    @media (max-width: 640px){ .meta{grid-template-columns:1fr} .gallery{grid-template-columns:repeat(4,1fr)} .g-6,.g-12{grid-column:span 4} }
+    /* ── SHARED ── */
+    .container { max-width: 1100px; margin-inline: auto; padding-inline: clamp(1rem,3vw,3rem); }
+    .section-label {
+      display: flex; align-items: center; gap: 1rem;
+      color: var(--muted); font-size: .72rem; letter-spacing: .15em; text-transform: uppercase;
+      margin-bottom: .8rem; font-weight: 500;
+    }
+    .section-label::before { content:''; width: 28px; height: 1px; background: var(--muted); }
+    .section-title {
+      font-family: var(--font-display); font-size: clamp(1.8rem,3.5vw,2.8rem);
+      font-weight: 800; letter-spacing: -.025em; line-height: 1.05;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--lime); color: #0d0d0f;
+      padding: .9rem 2rem; border-radius: 100px;
+      font-family: var(--font-display); font-weight: 700; font-size: .9rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(200,245,59,.35); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: .5rem;
+      border: 1.5px solid rgba(255,255,255,.15); color: var(--white);
+      padding: .9rem 2rem; border-radius: 100px;
+      font-family: var(--font-display); font-weight: 600; font-size: .9rem;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-outline:hover { border-color: var(--lime); color: var(--lime); }
+    .badge-pill {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(200,245,59,.1); border: 1px solid rgba(200,245,59,.25);
+      color: var(--lime); border-radius: 100px; padding: .35rem 1rem;
+      font-size: .75rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+    }
 
-    
+    /* BLOBS */
+    .blob-wrap { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .blob {
+      position: absolute; border-radius: 50%; filter: blur(90px); opacity: .14;
+      animation: drift 10s ease-in-out infinite alternate;
+    }
+    @keyframes drift { from{transform:translate(0,0) scale(1)} to{transform:translate(28px,18px) scale(1.07)} }
 
-    /* Modo claro en runtime */
+    /* SCROLL REVEAL */
+    .reveal {
+      transform: translateY(40px);
+      opacity: 1;
+      transition: transform .7s ease;
+      will-change: transform;
+    }
+    .reveal.visible { transform: translateY(0); }
+    .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.4s}
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+    /* ══════════════════════════════════════════
+       CASE HERO
+    ══════════════════════════════════════════ */
+    #case-hero {
+      min-height: 60vh; display: flex; align-items: center;
+      padding: 9rem 0 4rem; position: relative; overflow: hidden;
+    }
+    .case-hero-inner { position: relative; z-index: 1; max-width: 780px; }
+    .breadcrumbs {
+      display: flex; align-items: center; gap: .5rem;
+      color: var(--muted); font-size: .82rem; margin-bottom: 2rem;
+      opacity: 0; animation: fadeUp .6s .2s forwards;
+    }
+    .breadcrumbs a { color: var(--muted); transition: color .2s; }
+    .breadcrumbs a:hover { color: var(--lime); }
+    .breadcrumbs .sep { opacity: .5; }
+    .case-eyebrow {
+      margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp .6s .3s forwards;
+    }
+    .case-h1 {
+      font-family: var(--font-display); font-size: clamp(2.2rem,5.5vw,4.2rem);
+      font-weight: 800; letter-spacing: -.03em; line-height: .95;
+      margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp .8s .4s forwards;
+    }
+    .case-h1 em { font-style: normal; color: var(--lime); }
+    .case-lead {
+      font-size: 1.05rem; line-height: 1.8; color: rgba(240,237,230,.6);
+      max-width: 640px; margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp .8s .55s forwards;
+    }
+
+    /* ── META PILLS ── */
+    .meta-row {
+      display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem;
+      opacity: 0; animation: fadeUp .7s .65s forwards;
+    }
+    .meta-pill {
+      background: var(--surface); border: 1px solid rgba(255,255,255,.07);
+      border-radius: 14px; padding: 1rem 1.4rem;
+    }
+    .meta-pill span { display: block; color: var(--muted); font-size: .73rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .3rem; }
+    .meta-pill strong { font-family: var(--font-display); font-size: .95rem; font-weight: 700; }
+
+    /* ── COVER IMAGE ── */
+    .cover-wrap {
+      border-radius: var(--radius); overflow: hidden;
+      border: 1px solid rgba(255,255,255,.07);
+      opacity: 0; animation: fadeUp .9s .5s forwards;
+    }
+    .cover-wrap img { width: 100%; height: auto; display: block; }
+
+    /* ══════════════════════════════════════════
+       SECTIONS
+    ══════════════════════════════════════════ */
+    .case-section { padding: 5rem 0; border-top: 1px solid rgba(255,255,255,.05); }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+
+    .case-section p {
+      font-size: 1rem; line-height: 1.85; color: rgba(240,237,230,.65);
+      margin-bottom: 1.2rem;
+    }
+    .case-section p:last-child { margin-bottom: 0; }
+    .case-section p strong { color: var(--white); font-weight: 500; }
+
+    /* ── PROCESS STEPS ── */
+    .process-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+    .process-item {
+      background: var(--surface); border-radius: var(--radius); padding: 1.6rem 2rem;
+      border: 1px solid rgba(255,255,255,.06);
+      display: flex; align-items: flex-start; gap: 1.5rem;
+      transition: transform .3s, border-color .3s;
+    }
+    .process-item:hover { transform: translateX(6px); border-color: rgba(200,245,59,.15); }
+    .process-emoji {
+      font-size: 1.6rem; line-height: 1;
+      width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
+      background: rgba(200,245,59,.07); border-radius: 12px; flex-shrink: 0;
+    }
+    .process-text h3 {
+      font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+      margin-bottom: .4rem;
+    }
+    .process-text p {
+      font-size: .88rem; color: var(--muted); line-height: 1.65; margin: 0;
+    }
+    .process-num-badge {
+      margin-left: auto; font-family: var(--font-display); font-size: .75rem;
+      font-weight: 700; color: var(--muted); letter-spacing: .05em;
+      background: rgba(255,255,255,.04); border-radius: 100px;
+      padding: .2rem .6rem; flex-shrink: 0; align-self: center;
+    }
+
+    /* ── GALLERY ── */
+    .gallery { display: flex; flex-direction: column; gap: 1.3rem; margin-top: 2.5rem; }
+    .gallery-item {
+      background: var(--surface);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.06);
+      transition: transform .3s, border-color .3s;
+    }
+    .gallery-item:hover { transform: translateY(-4px) translateZ(0); border-color: rgba(255,255,255,.12); }
+    .gallery-item img {
+      width: 100%; height: auto; display: block;
+      transform: translateZ(0); will-change: transform; backface-visibility: hidden;
+    }
+
+    /* ── CALLOUT ── */
+    .callout-section { padding: 5rem 0; }
+    .callout-box {
+      background: var(--surface); border-radius: 24px;
+      padding: 3rem; border: 1px solid rgba(255,255,255,.07);
+      display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap;
+      position: relative; overflow: hidden;
+    }
+    .callout-box::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 80% 50%, rgba(200,245,59,.06), transparent 60%);
+      pointer-events: none;
+    }
+    .callout-box h2 {
+      font-family: var(--font-display); font-size: clamp(1.4rem,2.5vw,2rem);
+      font-weight: 800; letter-spacing: -.025em; margin-bottom: .5rem;
+    }
+    .callout-box p { color: var(--muted); font-size: .95rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem 0; border-top: 1px solid rgba(255,255,255,.05);
+      color: var(--muted); font-size: .78rem;
+    }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--lime); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav.site { padding: 1.2rem 1.5rem; }
+      .two-col { grid-template-columns: 1fr; gap: 2.5rem; }
+      .meta-row { gap: .7rem; }
+      .meta-pill { padding: .8rem 1rem; }
+      body { cursor: auto; }
+      #cursor, #cursor-ring { display: none; }
+    }
+    @media (max-width: 480px) {
+      .btn-back span { display: none; }
+    }
   </style>
 </head>
 <body>
-  <header class="site">
-    <div class="container nav">
-      <a href="./index.html#trabajos" class="brand" aria-label="Volver al inicio">
-       
-        
-         <img src="./MArca sola para WEb_Mesa de trabajo 1.png" alt="" class="brand-mark" />
-        Luis Cauhapé
-      </a>
-      <nav class="menu" aria-label="Acciones">
-        <a href="./index.html#trabajos" class="btn ghost">← Volver a trabajos</a>
-        <button class="btn ghost" id="themeToggle" type="button" aria-pressed="false">🌙 Modo</button>
-      </nav>
+
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- NAV -->
+  <nav class="site">
+    <a href="./index.html" class="nav-logo">
+      <img src="./MArca sola para WEb_Mesa de trabajo 1.png" alt="Logo Luis Cauhapé" onerror="this.style.display='none'"/>
+      Luis <span>.</span>
+    </a>
+    <div class="nav-actions">
+      <a href="./index.html#trabajos" class="btn-back">← <span>Volver a trabajos</span></a>
+      <a href="./index.html#contacto" class="nav-cta">Empecemos</a>
     </div>
-  </header>
+  </nav>
 
-  <main>
-    <div class="container case-hero">
-      <nav class="breadcrumbs" aria-label="Breadcrumbs">
-        <a href="./index.html#trabajos">Trabajos</a>
-        <span class="sep">/</span>
-        <span aria-current="page">Social + Espacio</span>
-      </nav>
-
-      <span class="eyebrow">Caso de estudio</span>
-      <h1>Exposición Tomás Maldonado: Social + Espacio</h1>
-      <p class="lead">Una fusión del artista, el enfoque en la interacción social y espacial del diseño.</p>
- 
-      <div class="cover">
-        <img class="image-presentacion" src="./440207135570603.61e9c8c9b8725.jpg" alt="Portada del caso: Representacion del stand para el museo MALBA" />
-      </div>
-
-      <div class="meta" role="list">
-        <div class="item" role="listitem"><span>Rol</span><strong>Diseño, Recorrido </strong></div>
-        <div class="item" role="listitem"><span>Entregables</span><strong> Piezas digitales, Planos, Cortes, Vistas</strong></div>
-        <div class="item" role="listitem"><span>Herramientas</span><strong>Photoshop, Illustrator, Sketch</strong></div>
-        <div class="item" role="listitem"><span>Año</span><strong>2022</strong></div>
-      </div>
+  <!-- ══ CASE HERO ══ -->
+  <section id="case-hero">
+    <div class="blob-wrap">
+      <div class="blob" style="width:500px;height:500px;background:var(--orange);top:-80px;right:-100px;animation-delay:0s"></div>
+      <div class="blob" style="width:320px;height:320px;background:var(--lime);bottom:-60px;left:-40px;animation-delay:5s;opacity:.07"></div>
+      <div class="blob" style="width:260px;height:260px;background:var(--pink);top:50%;left:35%;animation-delay:2.5s"></div>
     </div>
-
-    <section id="objetivos">
-      <div class="container">
-        <div class="section-head"><h2>Objetivos</h2></div>
-        <p class="muted">Visibilizar la obra de Tomás Maldonado, destacando su influencia en el diseño moderno y la teoría del color.</p>
-
-        <p class="muted">Fomentar el diálogo interdisciplinar, integrando elementos arquitectónicos, gráficos y museográficos.</p>
-
-        <p class="muted">Crear una experiencia vivencial, donde el público pueda explorar y conectar con el contenido de manera sensorial.</p>
-
-      </div>
-    </section>
-
-    <section id="proceso">
-      <div class="container">
-        <div class="section-head"><h2>Proceso</h2></div>
-        <p class="muted">Investigación inicial: Análisis del legado teórico y práctico de Tomás Maldonado</p>
-        <p class="muted">Conceptualización: Desarrollo de ejes curatoriales que enlazan diseño, percepción espacial y comunicación visual.</p>
-        <p class="muted">Prototipado de la experiencia: Bocetos de recorrido, diagramación de piezas informativas y selección de objetos representativos.</p>
-        <p class="muted">Montaje y puesta en escena: Diseño de la circulación, ambientación visual (gráficas, iluminación, señalética) y disposición de las piezas.</p>
-        <p class="muted">Evaluación final: Revisión de la experiencia de usuario en el recorrido expositivo, ajustes de montaje.</p>
-      </div>
-    </section>
-
-    <section id="galeria">
-      <div class="container">
-        <div class="section-head"><h2>Resultados</h2></div>
-        <div class="gallery">
-          <figure class="frame g-6"><img src="./ResultadosTomasMaldinado_Mesa de trabajo 1.jpg" alt="Composición de posts; ejemplo 1" /></figure>
-          
-      </div>
-      <div class="gallery">
-          <figure class="frame g-6"><img src="./ResultadosTomasMaldinado-02.jpg" alt="Composición de posts; ejemplo 2" /></figure>
+    <div class="container">
+      <div class="case-hero-inner">
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <a href="./index.html">Inicio</a>
+          <span class="sep">/</span>
+          <a href="./index.html#trabajos">Trabajos</a>
+          <span class="sep">/</span>
+          <span>Tomás Maldonado</span>
+        </nav>
+        <div class="case-eyebrow">
+          <span class="badge-pill">Museografía · Diseño Espacial · Comunicación Visual</span>
+        </div>
+        <h1 class="case-h1">
+          Social + <em>Espacio</em><br/>
+          Tomás Maldonado.
+        </h1>
+        <p class="case-lead">Una fusión del artista con el enfoque en la interacción social y espacial del diseño. Un recorrido expositivo pensado para conectar al público con la obra y la teoría de uno de los referentes más importantes del diseño moderno.</p>
       </div>
 
-      
-      </div>
-    </section>
-
-    <section id="cta">
-      <div class="container">
-        <div class="callout">
-          <div>
-            <h2 style="margin:0 0 .25rem">Ver el proyecto en Behance</h2>
-            <p class="muted" style="margin:0">Explorá el proyecto completo aquí.</p>
-          </div>
-
-          <a class="btn" href="https://www.behance.net/gallery/135570603/Exposicion-Tomas-Maldonado" target="_blank" rel="noopener">Abrir en Behance ↗</a>
+      <!-- META -->
+      <div class="meta-row">
+        <div class="meta-pill">
+          <span>Rol</span>
+          <strong>Diseño & Recorrido</strong>
+        </div>
+        <div class="meta-pill">
+          <span>Entregables</span>
+          <strong>Piezas digitales, Planos, Cortes, Vistas</strong>
+        </div>
+        <div class="meta-pill">
+          <span>Herramientas</span>
+          <strong>Photoshop · Illustrator · Sketch</strong>
+        </div>
+        <div class="meta-pill">
+          <span>Año</span>
+          <strong>2022</strong>
         </div>
       </div>
-    </section>
-  </main>
 
+      <!-- PORTADA -->
+      <div class="cover-wrap">
+        <img src="./440207135570603.61e9c8c9b8725.jpg" alt="Portada del caso: Representación del stand para el museo MALBA" loading="eager" decoding="async"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ OBJETIVOS ══ -->
+  <section class="case-section">
+    <div class="container">
+      <div class="two-col">
+        <div class="reveal">
+          <div class="section-label">El proyecto</div>
+          <h2 class="section-title" style="margin-bottom:1.5rem">¿Por qué <em style="font-style:normal;color:var(--lime)">Maldonado?</em></h2>
+        </div>
+        <div class="reveal d1">
+          <p>El propósito fue <strong>visibilizar la obra de Tomás Maldonado</strong>, destacando su influencia en el diseño moderno y la teoría del color. Una exposición que toma su legado y lo convierte en experiencia.</p>
+          <p>La propuesta busca fomentar el <strong>diálogo interdisciplinar</strong>, integrando elementos arquitectónicos, gráficos y museográficos en un mismo espacio.</p>
+          <p>El resultado es una experiencia vivencial donde el público puede explorar y conectar con el contenido de manera <strong>sensorial e intuitiva</strong>, recorriendo conceptos que van desde el diseño industrial hasta la percepción visual.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROCESO ══ -->
+  <section class="case-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Metodología</div>
+        <h2 class="section-title" style="margin-bottom:.6rem">El proceso<br/>de diseño.</h2>
+        <p style="color:var(--muted);font-size:1rem;margin-bottom:0">Desde la investigación del legado teórico hasta la puesta en escena final.</p>
+      </div>
+      <div class="process-list">
+        <div class="process-item reveal d1">
+          <div class="process-emoji">🔍</div>
+          <div class="process-text">
+            <h3>Investigación inicial</h3>
+            <p>Análisis del legado teórico y práctico de Tomás Maldonado: sus escritos, obra plástica y contribuciones al movimiento de la Hochschule für Gestaltung de Ulm.</p>
+          </div>
+          <span class="process-num-badge">01</span>
+        </div>
+        <div class="process-item reveal d1">
+          <div class="process-emoji">🎯</div>
+          <div class="process-text">
+            <h3>Conceptualización</h3>
+            <p>Desarrollo de ejes curatoriales que enlazan diseño, percepción espacial y comunicación visual. Definición del tono y la narrativa de la muestra.</p>
+          </div>
+          <span class="process-num-badge">02</span>
+        </div>
+        <div class="process-item reveal d2">
+          <div class="process-emoji">✏️</div>
+          <div class="process-text">
+            <h3>Prototipado de la experiencia</h3>
+            <p>Bocetos de recorrido, diagramación de piezas informativas y selección de objetos representativos que articulan el hilo conceptual de la exposición.</p>
+          </div>
+          <span class="process-num-badge">03</span>
+        </div>
+        <div class="process-item reveal d2">
+          <div class="process-emoji">🏛️</div>
+          <div class="process-text">
+            <h3>Montaje y puesta en escena</h3>
+            <p>Diseño de la circulación, ambientación visual —gráficas, iluminación, señalética— y disposición espacial de las piezas para guiar al visitante.</p>
+          </div>
+          <span class="process-num-badge">04</span>
+        </div>
+        <div class="process-item reveal d3">
+          <div class="process-emoji">✅</div>
+          <div class="process-text">
+            <h3>Evaluación final</h3>
+            <p>Revisión de la experiencia de usuario en el recorrido expositivo. Ajustes de montaje y refinamiento de las piezas a partir del feedback recibido.</p>
+          </div>
+          <span class="process-num-badge">05</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ GALERÍA ══ -->
+  <section class="case-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Resultados</div>
+        <h2 class="section-title" style="margin-bottom:.5rem">Diseño final<br/>de la exposición.</h2>
+      </div>
+      <div class="gallery">
+        <div class="gallery-item reveal d1">
+          <img src="./ResultadosTomasMaldinado_Mesa de trabajo 1.jpg" alt="Resultados exposición Tomás Maldonado — vista 1"/>
+        </div>
+        <div class="gallery-item reveal d2">
+          <img src="./ResultadosTomasMaldinado-02.jpg" alt="Resultados exposición Tomás Maldonado — vista 2"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CALLOUT CTA ══ -->
+  <section class="callout-section">
+    <div class="container">
+      <div class="callout-box reveal">
+        <div>
+          <h2>Ver el proyecto completo</h2>
+          <p>Explorá el caso de estudio completo en Behance.</p>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+          <a href="https://www.behance.net/gallery/135570603/Exposicion-Tomas-Maldonado" target="_blank" class="btn-primary">Abrir en Behance ↗</a>
+          <a href="./index.html#contacto" class="btn-outline">Contactame</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
-      <small>© <span id="year"></span> Luis Cauhapé — Diseñador en Comunicación Visual</small>
-      <a href="#top" class="btn ghost" aria-label="Volver arriba">↑</a>
+    <div class="container">
+      <div class="footer-inner">
+        <small>© <span id="year"></span> Luis Cauhapé — Diseñador en Comunicación Visual</small>
+        <a href="#case-hero" class="btn-outline" style="padding:.55rem 1.2rem;font-size:.82rem" id="back-top">Volver arriba ↑</a>
+      </div>
     </div>
   </footer>
 
   <script>
-    // Año dinámico
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Tema dark/light (mismo comportamiento que el index)
-    const toggle = document.getElementById('themeToggle');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const saved = localStorage.getItem('theme');
-    if(saved === 'light') document.documentElement.classList.add('light');
-    if(saved === 'dark' || (!saved && prefersDark)) document.documentElement.classList.remove('light');
-    toggle?.addEventListener('click', () => {
-      document.documentElement.classList.toggle('light');
-      const isLight = document.documentElement.classList.contains('light');
-      localStorage.setItem('theme', isLight ? 'light' : 'dark');
-      toggle.setAttribute('aria-pressed', String(isLight));
+    document.getElementById('back-top').addEventListener('click', e => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Estilos para modo claro inyectados en runtime
-    const lightCSS = `:root{--bg:#f7fafc;--panel:#ffffff;--text:#0b1324;--muted:#556070}body{background:linear-gradient(180deg,#f5f7fb,#eef3f9)} header.site{background:rgba(255,255,255,.7);border-bottom-color:#e6e9f2}`;
-    const styleEl = document.createElement('style');
-    styleEl.id = 'lightStyles';
-    document.head.appendChild(styleEl);
-    const applyLight = () => styleEl.textContent = document.documentElement.classList.contains('light') ? lightCSS : '';
-    applyLight();
-    const mo = new MutationObserver(applyLight);
-    mo.observe(document.documentElement,{attributes:true,attributeFilter:['class']});
+    // Cursor personalizado
+    const cursor = document.getElementById('cursor');
+    const ring   = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX;
+      my = e.clientY;
+      cursor.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
+    });
+
+    (function animRing() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
+      requestAnimationFrame(animRing);
+    })();
+
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.background = 'var(--pink)';
+        ring.style.width = '56px';
+        ring.style.height = '56px';
+        ring.style.borderColor = 'rgba(255,79,216,.3)';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.background = 'var(--lime)';
+        ring.style.width = '36px';
+        ring.style.height = '36px';
+        ring.style.borderColor = 'rgba(200,245,59,.4)';
+      });
+    });
+
+    // Scroll reveal
+    const revObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+    window.addEventListener('load', () => {
+      document.querySelectorAll('img').forEach(img => {
+        img.style.opacity = '0.999';
+        setTimeout(() => img.style.opacity = '1', 50);
+      });
+    });
   </script>
 </body>
 </html>
