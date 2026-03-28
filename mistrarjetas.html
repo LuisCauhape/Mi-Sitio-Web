@@ -10,7 +10,6 @@
   <meta property="og:type" content="website"/>
   <link rel="icon" href="./MArca sola para WEb_Mesa de trabajo 1.png" type="image/x-icon"/>
  
-  <!-- ── FONTS: Bricolage Grotesque (display) + DM Sans (body) ── -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
@@ -27,7 +26,6 @@
       --orange: #ff7c3b;
       --white: #f0ede6;
       --muted: #7a7a8a;
-      /* ── Bricolage Grotesque reemplaza a Syne en todos los display ── */
       --font-display: 'Bricolage Grotesque', sans-serif;
       --font-body: 'DM Sans', sans-serif;
       --radius: 20px;
@@ -69,47 +67,23 @@
     }
     .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
     .nav-logo span { color: var(--lime); }
-    .nav-links { display: flex; align-items: center; gap: .3rem; }
-    .nav-links a {
+    .nav-actions { display: flex; align-items: center; gap: .8rem; }
+    .btn-back {
+      display: inline-flex; align-items: center; gap: .5rem;
       color: var(--muted); padding: .6rem .9rem; border-radius: 10px;
       font-size: .82rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 500;
-      transition: color .2s, background .2s;
+      border: 1px solid rgba(255,255,255,.08);
+      transition: color .2s, background .2s, border-color .2s;
     }
-    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,.05); }
+    .btn-back:hover { color: var(--white); background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.15); }
     .nav-cta {
       background: var(--lime); color: #0d0d0f;
       padding: .55rem 1.4rem; border-radius: 100px;
       font-family: var(--font-display); font-weight: 700; font-size: .82rem;
-      transition: transform .2s, box-shadow .2s; margin-left: .5rem;
+      transition: transform .2s, box-shadow .2s;
     }
     .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,245,59,.3); }
- 
-    /* Mobile nav toggle */
-    .nav-toggle {
-      display: none; background: none; border: 1.5px solid rgba(255,255,255,.12);
-      color: var(--white); width: 40px; height: 40px; border-radius: 10px;
-      font-size: 1.1rem; align-items: center; justify-content: center; cursor: none;
-    }
-    #mobile-menu {
-      display: none; flex-direction: column;
-      position: fixed; inset: 0; background: rgba(13,13,15,.97);
-      backdrop-filter: blur(20px); justify-content: center; align-items: center;
-      gap: 1.5rem; z-index: 300;
-    }
-    #mobile-menu.open { display: flex; }
-    #mobile-menu a {
-      font-family: var(--font-display); font-size: 1.6rem; font-weight: 700;
-      color: var(--muted); transition: color .2s;
-    }
-    #mobile-menu a:hover { color: var(--lime); }
-    #mobile-menu .close-btn {
-      position: absolute; top: 1.5rem; right: 1.5rem;
-      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
-      color: var(--white); width: 44px; height: 44px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem; cursor: none;
-    }
- 
+
     /* ── SHARED ── */
     .container { max-width: 1200px; margin-inline: auto; padding-inline: clamp(1rem,3vw,3rem); }
     .section-label {
@@ -162,9 +136,7 @@
  
     @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
  
-    /* ══════════════════════════════════════════
-       CASE HERO
-    ══════════════════════════════════════════ */
+    /* ══ CASE HERO ══ */
     #case-hero {
       min-height: 80vh; display: flex; align-items: center;
       padding: 9rem 0 5rem; position: relative; overflow: hidden;
@@ -212,9 +184,7 @@
     .meta-item span { display: block; color: var(--muted); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .4rem; }
     .meta-item strong { font-family: var(--font-display); font-size: 1rem; font-weight: 700; }
  
-    /* ══════════════════════════════════════════
-       COVER IMAGE
-    ══════════════════════════════════════════ */
+    /* COVER */
     #cover { padding: 0 0 5rem; }
     .cover-wrap {
       border-radius: 28px; overflow: hidden;
@@ -228,9 +198,7 @@
       pointer-events: none;
     }
  
-    /* ══════════════════════════════════════════
-       SECTIONS
-    ══════════════════════════════════════════ */
+    /* SECTIONS */
     .case-section { padding: 5rem 0; }
     .case-section + .case-section { border-top: 1px solid rgba(255,255,255,.05); }
     .section-bg { background: var(--surface); }
@@ -289,9 +257,7 @@
     .tag.pink { background: rgba(255,79,216,.08); border-color: rgba(255,79,216,.2); color: var(--pink); }
     .tag.cyan { background: rgba(59,223,255,.08); border-color: rgba(59,223,255,.2); color: var(--cyan); }
  
-    /* ══════════════════════════════════════════
-       CTA FINAL
-    ══════════════════════════════════════════ */
+    /* CTA FINAL */
     #cta-final { padding: 5rem 0; }
     .cta-box {
       background: var(--surface); border-radius: 28px; padding: 3.5rem;
@@ -308,9 +274,7 @@
     .cta-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
  
     /* NAV between projects */
-    .case-nav {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;
-    }
+    .case-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
     .case-nav-card {
       background: var(--surface); border-radius: var(--radius); padding: 1.5rem 1.8rem;
       border: 1px solid rgba(255,255,255,.06);
@@ -337,8 +301,6 @@
       .process-row { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-toggle { display: inline-flex; }
       nav.site { padding: 1.2rem 1.5rem; }
       .gallery-grid { grid-template-columns: 1fr; }
       .process-row { grid-template-columns: 1fr; }
@@ -349,6 +311,7 @@
       #cursor, #cursor-ring { display: none; }
     }
     @media (max-width: 480px) {
+      .btn-back span { display: none; }
       .meta-grid { grid-template-columns: 1fr 1fr; }
       .case-ctas { flex-direction: column; }
     }
@@ -359,31 +322,16 @@
   <div id="cursor"></div>
   <div id="cursor-ring"></div>
  
-  <!-- MOBILE MENU -->
-  <div id="mobile-menu">
-    <button class="close-btn" id="close-menu">✕</button>
-    <a href="./index.html#quien-soy">Acerca de mí</a>
-    <a href="./index.html#servicios">Servicios</a>
-    <a href="./index.html#trabajos">Trabajos</a>
-    <a href="./index.html#proceso">Proceso</a>
-    <a href="./index.html#contacto">Contacto</a>
-  </div>
- 
-  <!-- NAV — id="site-top" como ancla confiable -->
+  <!-- NAV -->
   <nav class="site" id="site-top">
     <a href="./index.html" class="nav-logo">
       <img src="./MArca sola para WEb_Mesa de trabajo 1.png" alt="Logo Luis Cauhapé" onerror="this.style.display='none'"/>
       Luis <span>.</span>
     </a>
-    <div class="nav-links">
-      <a href="./index.html#quien-soy">Acerca de mí</a>
-      <a href="./index.html#servicios">Servicios</a>
-      <a href="./index.html#trabajos">Trabajos</a>
-      <a href="./index.html#proceso">Proceso</a>
-      <a href="./index.html#contacto">Contacto</a>
+    <div class="nav-actions">
+      <a href="./index.html#trabajos" class="btn-back">← <span>Volver a trabajos</span></a>
       <a href="./index.html#contacto" class="nav-cta">Empecemos</a>
     </div>
-    <button class="nav-toggle" id="open-menu" aria-label="Abrir menú">☰</button>
   </nav>
  
   <!-- ══ CASE HERO ══ -->
@@ -396,6 +344,8 @@
     <div class="container">
       <div class="case-hero-inner">
         <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <a href="./index.html">Inicio</a>
+          <span class="sep">/</span>
           <a href="./index.html#trabajos">Trabajos</a>
           <span class="sep">/</span>
           <span>Estrategias de Social Media</span>
@@ -570,28 +520,14 @@
     <div class="container">
       <div class="footer-inner">
         <small>© <span id="year"></span> Luis Cauhapé — Diseñador en Comunicación Visual</small>
-        <!-- Botón "Volver arriba" con clase js-scroll-top para handler confiable -->
         <a href="#site-top" class="btn-outline js-scroll-top" style="padding:.55rem 1.2rem;font-size:.82rem">Volver arriba ↑</a>
       </div>
     </div>
   </footer>
  
   <script>
-    // ── Año en footer ──
     document.getElementById('year').textContent = new Date().getFullYear();
- 
-    // ── Mobile menu ──
-    document.getElementById('open-menu').addEventListener('click', () => {
-      document.getElementById('mobile-menu').classList.add('open');
-    });
-    document.getElementById('close-menu').addEventListener('click', () => {
-      document.getElementById('mobile-menu').classList.remove('open');
-    });
-    document.querySelectorAll('#mobile-menu a').forEach(a => {
-      a.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
-    });
- 
-    // ── Botón "Volver arriba" — scroll JS confiable en todos los browsers ──
+
     document.querySelectorAll('.js-scroll-top').forEach(el => {
       el.addEventListener('click', e => {
         e.preventDefault();
@@ -599,7 +535,6 @@
       });
     });
  
-    // ── Cursor personalizado ──
     const cursor = document.getElementById('cursor');
     const ring   = document.getElementById('cursor-ring');
     let mx = 0, my = 0, rx = 0, ry = 0;
@@ -626,7 +561,6 @@
       });
     });
  
-    // ── Scroll reveal ──
     const revObs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: .1 });
