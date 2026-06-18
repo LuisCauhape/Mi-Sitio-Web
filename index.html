@@ -809,7 +809,44 @@
       </div>
     </div>
   </footer>
- 
+ <!-- ══ MODAL ÚLTIMO TRABAJO ══ -->
+<div id="last-work-modal" style="position:fixed;inset:0;z-index:9000;display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;transition:opacity .4s ease;pointer-events:none;">
+  <div id="modal-backdrop" style="position:absolute;inset:0;background:rgba(13,13,15,.8);backdrop-filter:blur(6px);"></div>
+  <article id="modal-card" style="position:relative;z-index:1;background:var(--surface);border-radius:24px;border:1px solid rgba(255,255,255,.08);max-width:480px;width:100%;overflow:hidden;transform:translateY(20px);transition:transform .4s cubic-bezier(.23,1,.32,1);">
+
+    <!-- X cerrar -->
+    <button id="modal-close-x" aria-label="Cerrar" style="position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:var(--white);width:38px;height:38px;border-radius:50%;font-size:1rem;cursor:none;display:flex;align-items:center;justify-content:center;z-index:2;transition:background .2s;">✕</button>
+
+    <!-- Imagen -->
+    <div style="position:relative;height:210px;overflow:hidden;background:linear-gradient(135deg,#1a1a2e,rgba(200,245,59,.08));">
+      <div class="blob" style="width:300px;height:300px;background:var(--pink);top:-80px;right:-60px;opacity:.13;"></div>
+      <div class="blob" style="width:200px;height:200px;background:var(--lime);bottom:-40px;left:-30px;opacity:.08;"></div>
+      <img src="530bd1e9-8af6-4423-a11b-88f4bf101507.png" alt="Mountain Rider App"
+           style="width:100%;height:100%;object-fit:cover;position:relative;z-index:1;"
+           onerror="this.style.display='none'"/>
+    </div>
+
+    <!-- Contenido -->
+    <div style="padding:1.8rem 2rem 2rem;">
+      <div class="badge-pill" style="margin-bottom:1rem;font-size:.7rem;">Último proyecto</div>
+      <h2 style="font-family:var(--font-display);font-size:1.45rem;font-weight:800;letter-spacing:-.025em;line-height:1.15;color:var(--white);margin-bottom:.65rem;">Mountain Rider · App UI/UX</h2>
+      <p style="font-size:.85rem;color:var(--muted);line-height:1.75;margin-bottom:1.4rem;">Concepto de app para entusiastas del snowboard y el ski: seguimiento de pistas, condiciones en tiempo real y comunidad de riders.</p>
+
+      <!-- Tags -->
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.6rem;">
+        <span style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:var(--muted);border-radius:8px;padding:.3rem .8rem;font-size:.75rem;">UI/UX</span>
+        <span style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:var(--muted);border-radius:8px;padding:.3rem .8rem;font-size:.75rem;">App Design</span>
+        <span style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:var(--muted);border-radius:8px;padding:.3rem .8rem;font-size:.75rem;">Behance</span>
+      </div>
+
+      <!-- Botones -->
+      <div style="display:flex;gap:.75rem;">
+        <a href="https://www.behance.net/cauhapeelu2e6c" target="_blank" class="btn-primary" style="flex:1;justify-content:center;">Ver en Behance ↗</a>
+        <button id="modal-close-btn" class="btn-outline" style="flex:1;justify-content:center;border:none;cursor:none;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.12);">Cerrar</button>
+      </div>
+    </div>
+  </article>
+</div>
   <script>
     // ── Año en footer ──
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -898,6 +935,42 @@
       }
       btn.textContent = 'Enviar mensaje';
     });
+
+    // ── Modal último trabajo ──
+(function(){
+  const modal = document.getElementById('last-work-modal');
+  const card  = document.getElementById('modal-card');
+  function openModal(){
+    modal.style.pointerEvents = 'auto';
+    modal.style.opacity = '1';
+    card.style.transform = 'translateY(0)';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    modal.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    modal.style.pointerEvents = 'none';
+    document.body.style.overflow = '';
+    sessionStorage.setItem('modal-seen','1');
+  }
+  // Abrir automático después de 2 segundos (solo 1 vez por sesión)
+  if(!sessionStorage.getItem('modal-seen')){
+    setTimeout(openModal, 2000);
+  }
+  // Cerrar con botones
+  document.getElementById('modal-close-x').addEventListener('click', closeModal);
+  document.getElementById('modal-close-btn').addEventListener('click', closeModal);
+  // Cerrar al clickear el backdrop
+  document.getElementById('modal-backdrop').addEventListener('click', closeModal);
+  // Cerrar con ESC
+  document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+  // Cursor hover en el modal
+  [document.getElementById('modal-close-x'), document.getElementById('modal-close-btn')].forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cursor.style.background='var(--pink)';ring.style.width='56px';ring.style.height='56px';});
+    el.addEventListener('mouseleave',()=>{cursor.style.background='var(--lime)';ring.style.width='36px';ring.style.height='36px';});
+  });
+})();
+    
   </script>
 </body>
 </html>
